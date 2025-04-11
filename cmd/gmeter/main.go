@@ -2,19 +2,18 @@ package main
 
 import (
 	"flag"
+	"gmeter/pkg/counter"
 	"log"
 	"os"
 	"os/signal"
 	"time"
-
-	"gmeter/gen"
 )
 
 func main() {
 	iface := flag.String("i", "eno1np0:", "Network interface")
 	flag.Parse()
 
-	counter, err := gen.NewCounter()
+	counter, err := counter.NewCounter()
 	if err != nil {
 		log.Fatalf("Failed to create counter: %v", err)
 	}
